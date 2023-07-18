@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import UsersList from "./components/UsersList";
 
-function App() {
+const URL = "https://dummyjson.com/users";
+
+const App = () => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => setUsers(data.users));
+  }, []);
+  console.log(users);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UsersList users={users} />
     </div>
   );
-}
+};
 
 export default App;
