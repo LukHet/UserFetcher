@@ -1,5 +1,4 @@
 import User from "./User";
-import "../styles/UsersList.css";
 
 const UsersList = (props) => {
   const usersList = props.users?.map((user) => (

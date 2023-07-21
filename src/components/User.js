@@ -8,7 +8,7 @@ const User = (props) => {
           {props.firstname} {props.lastname}
         </div>
         <div className="userinfo">
-          <div>
+          <div className="useradress">
             <div>Birth date: {props.birthdate}</div>
             <div>City: {props.city}</div>
             <div>Address: {props.address}</div>
