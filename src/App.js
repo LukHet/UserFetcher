@@ -14,8 +14,12 @@ const App = () => {
   }, []);
 
   const handleClick = () => {
-    setCurrentUsers((arr) => [...arr, fetchedUsers[0]]);
-    setFetchedUsers((arr) => [arr.shift(), ...arr]);
+    if (fetchedUsers.length > 2) {
+      setCurrentUsers((arr) => [...arr, fetchedUsers[0]]);
+      setFetchedUsers((arr) => [arr.shift(), ...arr]);
+      return;
+    }
+    alert("Dodano już wszystkich użytkowników!");
   };
   return (
     <div className="App">
